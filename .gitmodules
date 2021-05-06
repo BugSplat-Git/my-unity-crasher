@@ -1,0 +1,3 @@
+[submodule "Packages/com.bugsplat.unity"]
+	path = Packages/com.bugsplat.unity
+	url = https://github.com/BugSplat-Git/bugsplat-unity
