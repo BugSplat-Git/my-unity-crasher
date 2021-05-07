@@ -13,8 +13,8 @@ git submodule update
 ```
 3. Open project in Unity
 4. Click the play button to start the project in the Editor
-5. Press one of the key combinations found in Main.cs to generate a crash or an exception
-6. Find your crash on the Crashes page and click the link in the ID column to see details about the crash
+5. Press one of the key combinations found in [Main.cs](https://github.com/BugSplat-Git/my-unity-crasher/blob/efd4a340dd7c4ef3f1a376ca74d9ea5c20e64d9e/Assets/Main.cs#L37) to generate a crash or an exception
+6. Find your crash on the [Crashes](https://app.bugsplat.com/v2/crashes?c0=appName&f0=CONTAINS&v0=my-unity-crasher&database=Fred) page and click the link in the ID column to see details about the crash
 
 For additional information on how to use BugSplat, check out the [documentation](https://www.bugsplat.com/docs/sdk/unity/) on our website or send us a message via the in-app chat.
 
