@@ -8,14 +8,13 @@ using BugSplat = BugSplatUnity.BugSplat;
 
 public class Main : MonoBehaviour
 {
-    private BugSplat bugsplat;
+    BugSplat bugsplat;
 
 #if UNITY_STANDALONE_WIN
     [DllImport("BugSplatUnity")]
     static extern void BsCrashImmediately();
 #endif
 
-    // Start is called before the first frame update
     void Start()
    {
         bugsplat = new BugSplat("fred", Application.productName, Application.version);
@@ -32,6 +31,8 @@ public class Main : MonoBehaviour
 
     void Update()
     {
+        transform.Rotate(new Vector3(0, 0, -0.2f));
+
 #if UNITY_STANDALONE_WIN
         if (Input.GetKeyDown(KeyCode.A))
         {
