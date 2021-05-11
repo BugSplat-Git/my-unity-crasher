@@ -60,3 +60,6 @@ crashlytics-build.properties
 
 # Output
 bin
+
+# macOS
+.DS_Store

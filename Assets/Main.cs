@@ -23,7 +23,7 @@ public class Main : MonoBehaviour
         bugsplat.Key = "the key!";
         bugsplat.User = "Fred";
         bugsplat.CaptureEditorLog = true;
-        bugsplat.CapturePlayerLog = false;
+        bugsplat.CapturePlayerLog = true;
         bugsplat.CaptureScreenshots = true;
         Application.logMessageReceived += bugsplat.LogMessageReceived;
         StartCoroutine(bugsplat.PostAllCrashes());
