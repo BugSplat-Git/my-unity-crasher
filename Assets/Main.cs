@@ -1,10 +1,12 @@
-using BugSplatDotNetStandard;
 using System;
-using System.Net.Http;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Diagnostics;
-using BugSplat = BugSplatUnity.BugSplat;
+using BugSplatUnity;
+using BugSplatUnity.Runtime.Client;
+
+#if UNITY_STANDALONE_WIN
+using System.Runtime.InteropServices;
+#endif
 
 public class Main : MonoBehaviour
 {
@@ -17,7 +19,10 @@ public class Main : MonoBehaviour
 
     void Start()
    {
-        bugsplat = new BugSplat("fred", Application.productName, Application.version);
+        // TODO BG should we leave this, we used it to diagnose memory leak
+        Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.Full);
+
+        bugsplat = new BugSplat("octomore", Application.productName, Application.version);
         bugsplat.Description = "the default description";
         bugsplat.Email = "fred@bugsplat.com";
         bugsplat.Key = "the key!";
@@ -26,7 +31,9 @@ public class Main : MonoBehaviour
         bugsplat.CapturePlayerLog = true;
         bugsplat.CaptureScreenshots = true;
         Application.logMessageReceived += bugsplat.LogMessageReceived;
-        StartCoroutine(bugsplat.PostAllCrashes());
+#if UNITY_STANDALONE_WIN
+        StartCoroutine(bugsplat.PostMostRecentCrash());
+#endif
     }
 
     void Update()
@@ -63,16 +70,14 @@ public class Main : MonoBehaviour
             }
             catch (Exception ex)
             {
-                var options = new ExceptionPostOptions()
+                var options = new ReportPostOptions()
                 {
                     Description = "a new description"
                 };
 
-                static async void callback(HttpResponseMessage response)
+                static void callback()
                 {
-                    var status = response.StatusCode;
-                    var contents = await response.Content.ReadAsStringAsync();
-                    Debug.Log($"Response {status}: {contents}");
+                    Debug.Log($"Exception post callback!");
                 };
 
                 StartCoroutine(bugsplat.Post(ex, options, callback));
