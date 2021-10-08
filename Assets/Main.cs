@@ -22,7 +22,7 @@ public class Main : MonoBehaviour
         // TODO BG should we leave this, we used it to diagnose memory leak
         Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.Full);
 
-        bugsplat = new BugSplat("octomore", Application.productName, Application.version);
+        bugsplat = new BugSplat("fred", Application.productName, Application.version);
         bugsplat.Description = "the default description";
         bugsplat.Email = "fred@bugsplat.com";
         bugsplat.Key = "the key!";
