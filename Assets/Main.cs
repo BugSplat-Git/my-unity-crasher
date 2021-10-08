@@ -19,7 +19,6 @@ public class Main : MonoBehaviour
 
     void Start()
    {
-        // TODO BG should we leave this, we used it to diagnose memory leak
         Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.Full);
 
         bugsplat = new BugSplat("fred", Application.productName, Application.version);
