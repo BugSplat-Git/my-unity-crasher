@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.Diagnostics;
 using BugSplatUnity;
-using BugSplatUnity.Runtime.Client;
 
 #if UNITY_STANDALONE_WIN
 using System.Runtime.InteropServices;
@@ -44,7 +43,6 @@ public class Main : MonoBehaviour
         {
             BsCrashImmediately();
         }
-#endif
         if (Input.GetKeyDown(KeyCode.M))
         {
             Utils.ForceCrash(ForcedCrashCategory.Abort);
@@ -61,6 +59,7 @@ public class Main : MonoBehaviour
         {
             Utils.ForceCrash(ForcedCrashCategory.PureVirtualFunction);
         }
+#endif
         if (Input.GetKeyDown(KeyCode.E))
         {
             try
