@@ -1649,13 +1649,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5305253083692843789, guid: de657baed6ab68e4e946d741cdbe94e2, type: 3}
       propertyPath: m_text
-      value: 'Crash:  BugSplat Crash Immedietelly
+      value: 'Crash:  Plugin Crash
 
 '
       objectReference: {fileID: 0}
     - target: {fileID: 5305253083977984383, guid: de657baed6ab68e4e946d741cdbe94e2, type: 3}
       propertyPath: m_Name
-      value: Button_BugSplatCrashImmedietelly
+      value: Button_PluginCrash
       objectReference: {fileID: 0}
     - target: {fileID: 5305253083977984384, guid: de657baed6ab68e4e946d741cdbe94e2, type: 3}
       propertyPath: m_Pivot.x
