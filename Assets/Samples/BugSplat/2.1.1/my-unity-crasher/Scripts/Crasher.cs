@@ -13,23 +13,17 @@ namespace Crasher
 	public class Crasher : MonoBehaviour
 	{
 		BugSplat bugsplat;
-
-#if UNITY_STANDALONE_WIN
-		[DllImport("BugSplatUnity")]
-		static extern void BsCrashImmediately();
-#endif
 		
 		void Start()
 		{
 			bugsplat = FindObjectOfType<BugSplatManager>().BugSplat;
 			Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.Full);
-
 #if UNITY_STANDALONE_WIN
-			StartCoroutine(bugsplat.PostMostRecentCrash());
+            StartCoroutine(bugsplat.PostMostRecentCrash());
 #endif
 		}
 
-		private void generateSampleStackFramesAndThrow()
+        private void generateSampleStackFramesAndThrow()
 		{
 			sampleStackFrame0();
 		}
@@ -84,13 +78,6 @@ namespace Crasher
 		public void Event_ThrowException()
 		{
 			generateSampleStackFramesAndThrow();
-		}
-
-		public void Event_BSCrashImmedietelly()
-		{
-#if UNITY_STANDALONE_WIN
-			BsCrashImmediately();
-#endif
 		}
 	}
 }
